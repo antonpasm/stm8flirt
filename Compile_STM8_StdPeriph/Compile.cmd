@@ -1,5 +1,5 @@
 call :compile medium medium hz mm_hz
-:call :compile small small hz ss_hz
+::call :compile small small hz ss_hz
 
 @goto :eof
 
