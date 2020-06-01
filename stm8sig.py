@@ -17,16 +17,16 @@ vregsfixed = True
 storehex = not True
 
 # store lib.o files
-storearchive = True
+storearchive = not True
 
 # store lib.txt dump files
-storedump = True
+storedump = not True
 
 dolog = True
 
 stm8tool_iarchive = r"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\stm8\bin\iarchive.exe"
 stm8tool_ielfdump = r"C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.3\stm8\bin\ielfdumpstm8.exe"
-idatool_sigmake = r"D:\flair68\flair68\bin\win\sigmake.exe"
+idatool_sigmake = r"D:\flair68\bin\win\sigmake.exe"
 
 
 def log(*message):

@@ -1,1 +1,3 @@
-/Compile_STM8_StdPeriph/obj/
+/Compile_STM8_StdPeriph/obj*/
+*.err
+
