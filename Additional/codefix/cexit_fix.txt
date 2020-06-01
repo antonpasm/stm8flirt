@@ -1,0 +1,28 @@
+
+
+Section #6 .far_func.text:
+
+  $t:
+  _exit:
+      000000 89        PUSHW     X
+#  __cstart_call_dtors:
+#      000001 8D000000  CALLF     __call_dtors
+#  __cstart_closeall:
+#      000005 8D000000  CALLF     _Close_all
+#  `.far_func.text_4`:
+      000009 85        POPW      X
+      00000A 8D000000  CALLF     __exit
+
+
+-------------------------------------------------------------------------------
+Section #15 .rela.far_func.text:
+
+  # Offset Relocation     Addend Symbol              Section
+  - ------ ----------     ------ ------              -------
+  0    0x0 0 R_STM8_NONE     0x0  7 .far_func.text_4 #6 .far_func.text
+  1    0x2 4 R_STM8_DIR24    0x0 10 __call_dtors        Ext
+  2    0x6 4 R_STM8_DIR24    0x0  9 _Close_all          Ext
+  3    0xb 4 R_STM8_DIR24    0x0 11 __exit              Ext
+
+Errors: none
+Warnings: none

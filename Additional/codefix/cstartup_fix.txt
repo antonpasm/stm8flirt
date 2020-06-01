@@ -1,0 +1,39 @@
+
+
+Section #7 .far_func.text:
+
+  $t:
+  __iar_program_start:
+      000000 AE0000    LDW       X, #CSTACK$$Limit+-0x1
+      000003 94        LDW       SP, X
+      000004 8D000000  CALLF     __low_level_init
+      000008 5D        TNZW      X
+      000009 2704      JREQ      __iar_cstart_call_ctors
+      00000B 8D000000  CALLF     __iar_data_init2
+#  ??call_ctors:
+  __iar_cstart_call_ctors:
+#      00000F AE0000    LDW       X, #SHT$$PREINIT_ARRAY$$Base
+#      000012 90AE0000  LDW       Y, #SHT$$INIT_ARRAY$$Limit
+#      000016 8D000000  CALLF     __call_ctors
+  __iar_section$$root:
+      00001A 8D000000  CALLF     main
+      00001E AC000000  JPF       exit
+
+
+-------------------------------------------------------------------------------
+Section #8 .rela.far_func.text:
+
+  # Offset Relocation     Addend     Symbol                      Section
+  - ------ ----------     ------     ------                      -------
+  0    0x0 0 R_STM8_NONE         0x0 11 __intvec                  Ext
+  1    0x1 3 R_STM8_DIR16 0xffffffff 18 CSTACK$$Limit             Ext
+  2    0x5 4 R_STM8_DIR24        0x0 12 __low_level_init          Ext
+  3    0xc 4 R_STM8_DIR24        0x0 10 __iar_data_init2          Ext
+  4   0x10 3 R_STM8_DIR16        0x0  8 SHT$$PREINIT_ARRAY$$Base  Ext
+  5   0x14 3 R_STM8_DIR16        0x0  7 SHT$$INIT_ARRAY$$Limit    Ext
+  6   0x17 4 R_STM8_DIR24        0x0  9 __call_ctors              Ext
+  7   0x1b 4 R_STM8_DIR24        0x0 14 main                      Ext
+  8   0x1f 4 R_STM8_DIR24        0x0 13 exit                      Ext
+
+Errors: none
+Warnings: none
