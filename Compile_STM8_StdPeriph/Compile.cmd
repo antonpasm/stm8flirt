@@ -1,6 +1,7 @@
 set device=STM8L15X_HD
 
 call :compile medium medium hz mm_hz
+::call :compile medium medium hz mm_hs
 ::call :compile small small hz ss_hz
 
 @goto :eof
